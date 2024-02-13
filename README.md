@@ -1,29 +1,113 @@
-Needs:
-Nintendo Switch fit for modding (https://ismyswitchpatched.com/guides/how-does-this-site-work/)
-Nintendo Switch RCM jig or alternative
-Computer
-USB C cord from computer to switch or USB to USB adapter
-Micro SD Card (Preferably 256gb and up but 64gb is possible, just unideal)
-Micro SD Card Adapter
-SD Card Reader
+# **Quick Guide to Modding Your Nintendo Switch**
+
+Modding your Nintendo Switch can be straightforward with the right tools and steps. Follow this guide closely for a smooth modding experience.
+
+# **Before You Begin**
+Check Compatibility: Visit ismyswitchpatched.com to verify if your Nintendo Switch is compatible with modding. Enter your serial number to check compatibility. Switches purchased in 2017-2018 are more likely to be moddable.
+
+Green: Compatible
+
+Red: Incompatible
+
+Yellow: Possibly compatible (proceed with caution)
+
+What You Need
+
+Moddable Nintendo Switch
+
+RCM Jig[ https://www.amazon.com/Nintendo-Switch-Short-Connector-Recovery/dp/B07J9JJRRG
+Computer](url)
+
+USB-C Cord that can connect to computer and nintendo swithch via double usb c or usb.
+
+Micro SD Card (64GB or larger) [https://www.amazon.com/dp/B0B985Q9F1/ref=twister_B0C3KYVDWT](url)
+
+Micro SD Card Adapter - [https://www.amazon.com/SanDisk-microSD-Memory-Adapter-MICROSD-ADAPTER/dp/B0047WZOOO/ref=sr_1_3?keywords=micro+sd+card+adapter&qid=1707769044&sr=8-3](url)
+
+SD Card Reader - [https://www.amazon.com/Hicober-USB-Card-Reader-Camera-Android/dp/B07T55DL33/ref=sr_1_2?keywords=micro%2Bsd%2Bcard%2Badapter&qid=1707768998&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1
+](url)
+
+Steps to Follow:
+
+First, insert your sd card into the sd card reader, insert the sd card reader into your computer, and then format your Micro SD Card to FAT32 via Easeus [https://www.easeus.com/](url) this is required to make sure your sd card is clean and ready to go. If this isn't your first time using this micro sd card it is imparative as a old partion may exist which would intefere with the modding process as well as take up excess space.
+
+Next, download all your required files found in the release portion of the main branch. Make sure you have EVERYTHING downloaded before you begin moving anything towards the root of your SD Card
 
 
-Beginning:
-Modding a Nintendo Switch is a simple process as long as you take this guides example step by step. 
+Required Files: 
+TegraRCM - [https://github.com/eliboa/TegraRcmGUI/releases](url)
+Atmostphere + Fuse Bin - [https://github.com/Atmosphere-NX/Atmosphere/releases](url)
+Hekate IPL - [https://github.com/CTCaer/hekate/releases](url)
+Sigpatches - [https://sigmapatches.su/](url)
 
-Before you may begin, there are two important steps.
+Extrack all the files that are zipped, and move the files (Atmosphere, Swithc, hbmw) inside of the atmosphere folder into the root of your sd card. 
 
-First, go to the website, https://ismyswitchpatched.com/ this will allow for you to check if your nintendo switch is ready to be modded or via this method or if it is not.Enter your serial number found on the bottom of your nintendo switch or from the HOME Menu, select System Settings. Scroll down the menu on the left-hand side and select System, followed by Serial Information. The system serial number will be displayed at the top of the list. Nintendo Switchs purchased in 2017-2018 are very likely to be moddable while later models are not.  
+Now with the hekate file, you are going to want to move the bootloader folder into the root of your sd card but NOT the hekate.ipl, you are going to want to move that somewhere where you can access it quickly such as your desktop, taskbar, or quick access folder. 
 
-The website can range from a green yes, a red no, or even a yellow maybe. If you get a maybe, hope is not lost as you just might be able to mod it but not for sure all you can do is try. But if you get a no, you're only way of modding your switch is either buying a nintendo switch with the proper serial number or hunting down someone to put in a mod chip, which is a risk in itself as they could put the mods into your switch improperly and end up frying your switch or the mods installed just don't work as you would want them to.
+Open up the sigpatches folder and copy the bootloader and atmosphere file over to the root of your sd card. If it asks for you to replace files, replace them. 
 
-If you got a yes or a maybe, your next step is to purchase this item here: https://www.amazon.com/RGEEK-Nintendo-Circuit-Archive-Simulator/dp/B07Q6YHRBM/ref=sr_1_1_sspa?hvadid=283737424986&hvdev=c&hvlocphy=9015712&hvnetw=g&hvqmt=e&hvrand=10783953693944332292&hvtargid=kwd-467797138521&hydadcr=6114_9326509&keywords=rcm+jig&qid=1707751344&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1
+Now go to /bootloader/payloads/ and put the fuse.bin file that you downloaded into that folder. 
 
-This is an RCM (Recovery mode) jig. As its name proclaims, its a piece that you insert into the right railing of your nintendo switch which allows for the a vulnerability to be attacked within the nintendo switch putting the switch into a boot state called recovery mode, which allows for the system to be manipulated. It costs about $8 and one of the most essential pieces. The jig makes contact with the 1 pin closest to the front of your switch and the 10 pin further to the back of the switch. If you miss these pins, your switch WILL be fried. Rendered useless. If you think you are up for the task or can not afford the purchase for this jig, their are several ways to make your own, but that is at your own risk.
+Now, open up your notepad and go to this website and do as follows:
 
-You're gonna need a micro sd card that's bigger than 64 gigs. In my honest opinion, get a bigger sd card as you will really get frustrated with a small sd card and end up buying a bigger one anyway, probably about 256gb. Make sure you have a micro sd card reader or a computer that has the ability to read sd cards in the adapter.
+Copy this code into a blank notepad, click save as, where it says save as type under file name, you are going to want to change it from txt document to all files, and then name the file "hekate_ipl.ini"
+Insert this file into /bootloader/
 
-Things you need to download:
-There are a few things you are gonna need to download before you can get started.
+[config]
+autoboot=0
+autoboot_list=0
+bootwait=3
+backlight=100
+autohosoff=0
+autonogc=1
+updater2p=0
+bootprotect=0
 
-First things first download EaseUS. This will allow for you to format your device to FAT32, the proper orientation for the micro sd card and the nintendo switch.
+[Atmosphere CFW]
+payload=bootloader/payloads/fusee.bin
+icon=bootloader/res/icon_payload.bmp
+
+[Stock SysNAND]
+fss0=atmosphere/package3
+stock=1
+emummc_force_disable=1
+icon=bootloader/res/icon_switch.bmp
+
+Then copy this text and repeat the previous steps but name it exosphere.ini and insert it into the root of your sd card
+
+[exosphere]
+debugmode=1
+debugmode_user=0
+disable_user_exception_handlers=0
+enable_user_pmu_access=0
+blank_prodinfo_sysmmc=0
+blank_prodinfo_emummc=1
+allow_writing_to_cal_sysmmc=0
+log_port=0
+log_baud_rate=115200
+log_inverted=0
+
+Now within your /atmosphere/ folder create a folder called hosts and then within "hosts" and you will make one more blank notepad entry with the following code and the same steps as prior but it will be named default.txt and move this into /atmosphere/hosts/ (and yes it is still all files even though it is txt)
+
+# Block Nintendo Servers
+127.0.0.1 *nintendo.*
+127.0.0.1 *nintendo-europe.com
+127.0.0.1 *nintendoswitch.*
+95.216.149.205 *conntest.nintendowifi.net
+95.216.149.205 *ctest.cdn.nintendo.net
+
+Now go into Tegra RCM (may ask you to do installer steps, just proceed with that) and inside Tegra RCM you are going to want to click on settings and install driver. Follow the steps that it asks you and retrun to Tegra RCM
+
+Now click on the folder where it says select payload and find the hekate.bin file that you were supposed to keep in a good place and when you click on the bin file open it up.
+
+Now go ahead and eject your sd card by going to your file manager and right clicking on your sd card, then in the pop up menu hit eject. You may now safely remove your sd card, and whenever you want to remove your sd card make sure you eject your sd card AS YOUR FILES COULD CORRUPT AND YOU WILL HAVE TO DO THIS AGAIN AND REINSTALL EVERYTHING.
+
+Now, make sure your switch is powered off, insert your micro sd card, and slide the rcm jig into the right joycon rail. Plug your nintendo switch into your computer via a usb-c cable and hold the power button and the volume up button. Inside Tegra RCM, it will change from a red "NO RCM" to a green "RCM OK" Now click Inject Payload. Your switch should successfully boot up hekate.
+
+It will ask you to put the current date and time and after that you are going to want to go to Tools at the top of the screen - Partition SD Card - and you are going to want to drag the red emuMMC (RAW) slider to the middle at 29 FULL. Now click next and answer yes/continue to the questions that pop up asking if you are sure you want to continue.
+
+Now, go to home at the top of the screen and hit emmuMMC to the very right - Create emuMMC - SD Partition - Part 1. 
+
+After that is finished return to the home menu at the top of the screen and hit payloads - fusee.bin and now your switch is officially modded!
+
+Go to album to view your mods.
