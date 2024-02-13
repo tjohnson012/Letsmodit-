@@ -93,7 +93,9 @@ Now within your /atmosphere/ folder create a folder called hosts and then within
 127.0.0.1 *nintendo.*
 127.0.0.1 *nintendo-europe.com
 127.0.0.1 *nintendoswitch.*
+
 95.216.149.205 *conntest.nintendowifi.net
+
 95.216.149.205 *ctest.cdn.nintendo.net
 
 Now go into Tegra RCM (may ask you to do installer steps, just proceed with that) and inside Tegra RCM you are going to want to click on settings and install driver. Follow the steps that it asks you and retrun to Tegra RCM
